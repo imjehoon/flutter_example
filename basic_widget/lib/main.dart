@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -25,20 +27,48 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// class MyHomePage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     // TODO: implement build
+//     return Container(
+//       alignment: Alignment.centerLeft,
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.center, // 정렬 기준 가운데, 중간 등등
+//         mainAxisSize: MainAxisSize.max , // 가로 공간을 차지 할지 말지를 결정한다
+//         crossAxisAlignment: CrossAxisAlignment.start, // ROW는 가로로 나열하는데 그걸 크로스하니 세로를 나타내는거다
+//         children: <Widget>[
+//             YellowBox(),
+//             TallerYellowBox(),
+//             YellowBox(),
+//         ],
+//       ),
+//     );
+//   }
+// }
+
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
       alignment: Alignment.centerLeft,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center, // 정렬 기준 가운데, 중간 등등 
-        mainAxisSize: MainAxisSize.max , // 가로 공간을 차지 할지 말지를 결정한다
-        crossAxisAlignment: CrossAxisAlignment.start, // ROW는 가로로 나열하는데 그걸 크로스하니 세로를 나타내는거다
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center, // 정렬 기준 가운데, 중간 등등
+        mainAxisSize: MainAxisSize.max, // 가로 공간을 차지 할지 말지를 결정한다
+        //crossAxisAlignment: CrossAxisAlignment.center, // ROW는 가로로 나열하는데 그걸 크로스하니 세로를 나타내는거다
         children: <Widget>[
-            YellowBox(),
-            TallerYellowBox(),
-            YellowBox(),
+          Flexible(
+            child: YellowBox(),
+            fit: FlexFit.tight,
+          ),
+          Flexible(
+            child:  TallerYellowBox(),
+            fit: FlexFit.tight,
+          ),
+          Expanded(
+             child: YellowBox(),
+          ) 
         ],
       ),
     );
@@ -63,8 +93,8 @@ class TallerYellowBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
-      width: 50,
+      height: 50,
+      width: 100,
       decoration: BoxDecoration(
         color: Colors.yellowAccent,
         border: Border.all(),
