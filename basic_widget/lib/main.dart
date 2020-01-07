@@ -58,15 +58,22 @@ class MyHomePage extends StatelessWidget {
         mainAxisSize: MainAxisSize.max, // 가로 공간을 차지 할지 말지를 결정한다
         //crossAxisAlignment: CrossAxisAlignment.center, // ROW는 가로로 나열하는데 그걸 크로스하니 세로를 나타내는거다
         children: <Widget>[
+           Spacer(
+              flex: 1,
+          ),
           SizedBox(
             child: YellowBox(),
             height: 200,
             width: 150,
           ),
-          SizedBox(
-            height: 30,
+         
+          Spacer(
+              flex: 1,
           ),
           TallerYellowBox(),
+           Spacer(
+              flex: 5,
+          ),
           YellowBox(),
         ],
       ),
