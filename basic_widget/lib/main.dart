@@ -51,31 +51,22 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Container(
-      alignment: Alignment.centerLeft,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center, // 정렬 기준 가운데, 중간 등등
-        mainAxisSize: MainAxisSize.max, // 가로 공간을 차지 할지 말지를 결정한다
-        //crossAxisAlignment: CrossAxisAlignment.center, // ROW는 가로로 나열하는데 그걸 크로스하니 세로를 나타내는거다
-        children: <Widget>[
-           Spacer(
-              flex: 1,
-          ),
-          SizedBox(
-            child: YellowBox(),
-            height: 200,
-            width: 150,
-          ),
-         
-          Spacer(
-              flex: 1,
-          ),
-          TallerYellowBox(),
-           Spacer(
-              flex: 5,
-          ),
-          YellowBox(),
-        ],
+    return Scaffold(
+      backgroundColor: Colors.black,
+          body: Container(
+        alignment: Alignment.centerLeft,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center, // 정렬 기준 가운데, 중간 등등
+          mainAxisSize: MainAxisSize.max, // 가로 공간을 차지 할지 말지를 결정한다
+          crossAxisAlignment: CrossAxisAlignment.baseline, // baseline 이 밑으로 오도록 해준다.
+          textBaseline: TextBaseline.ideographic, // 알파벳이 밑줄 정렬하게 해준다.
+          //crossAxisAlignment: CrossAxisAlignment.center, // ROW는 가로로 나열하는데 그걸 크로스하니 세로를 나타내는거다
+          children: <Widget>[
+            Text('Hey', style: TextStyle(color: Colors.yellow, fontSize: 26),),
+            Text('Hey', style: TextStyle(color: Colors.red, fontSize: 56),),
+            Text('한글입니다.', style: TextStyle(color: Colors.green, fontSize: 36),)
+          ],
+        ),
       ),
     );
   }
