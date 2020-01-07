@@ -64,7 +64,8 @@ class MyHomePage extends StatelessWidget {
           children: <Widget>[
             Text('Hey', style: TextStyle(color: Colors.yellow, fontSize: 26),),
             Text('Hey', style: TextStyle(color: Colors.red, fontSize: 56),),
-            Text('한글입니다.', style: TextStyle(color: Colors.green, fontSize: 36),)
+            Text('한글입니다.', style: TextStyle(color: Colors.green, fontSize: 36),),
+            Icon(Icons.ac_unit, size: 60, color: Colors.lightBlue,)
           ],
         ),
       ),
