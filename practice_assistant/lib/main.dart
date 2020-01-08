@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice_assistant/screnns/login.dart';
 
 void main() => runApp(MyApp());
 
@@ -6,28 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        // appBar: AppBar(
-        //   title: Text('Firebase Login'),
-        // ),
-        body: Stack(
-          children: <Widget>[
-            Container(color: Colors.red,),
-            Column(
-              children: <Widget>[
-                Container(width: 200,height: 200,color: Colors.blue,),
-                Stack(
-                  children: <Widget>[
-                    Container(width: 200,height: 200,color: Colors.amber,),
-                    Container(width: 100,height: 50,color: Colors.black,),
-                  ],
-                ),
-                Container(width: 200,height: 200,color: Colors.white,),
-              ],
-            )
-          ],
-        )
-      ),
+      home: AuthPage(),
     );
   }
 }
