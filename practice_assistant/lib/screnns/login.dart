@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice_assistant/helper/login_backgroud.dart';
 
 class AuthPage extends StatelessWidget {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -15,14 +16,15 @@ class AuthPage extends StatelessWidget {
         body: Stack(
       alignment: Alignment.center, // 스택 가운데 정렬해줌
       children: <Widget>[
-        Container(
-          color: Colors.white,
+        CustomPaint(
+          size: size,
+          painter: LoginBackground(),
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.center, // 가운데 정렬
           mainAxisAlignment: MainAxisAlignment.end, // 스택 아래로 변경
           children: <Widget>[
-            Image.network("https://picsum.photos/200"),
+            _logoImage,
             Stack(
               children: <Widget>[
                 _inputForm(size),
@@ -32,7 +34,7 @@ class AuthPage extends StatelessWidget {
             Container(
               height: size.height * 0.1,
             ),
-            Text("Don't Have an Account? Create one2"),
+            Text("Don't Have an Account? Create one"),
             Container(
               height: size.height * 0.05,
             )
@@ -42,18 +44,40 @@ class AuthPage extends StatelessWidget {
     ));
   }
 
+  Widget get _logoImage => Expanded(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 40, left: 24, right: 24),
+          child: FittedBox(
+            fit: BoxFit.contain,
+            child: CircleAvatar(
+              backgroundImage: NetworkImage("https://picsum.photos/200"),
+            ),
+          ),
+        ),
+      );
+
   Widget _authButton(Size size) => Positioned(
-      left: size.width * 0.1,
-      right: size.width * 0.1,
-      bottom: 0,
-      child: RaisedButton(
-        child: Text("Login"),
-        color: Colors.blue,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        onPressed: () {},
-      ),
-    );
- 
+        left: size.width * 0.1,
+        right: size.width * 0.1,
+        bottom: 0,
+        child: SizedBox(
+          height: 50,
+          child: RaisedButton(
+            child: Text(
+              "Login",
+              style: TextStyle(fontSize: 20, color: Colors.white),
+            ),
+            color: Colors.blue,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+            onPressed: () {
+              if (_formKey.currentState.validate()) {
+                print(_emailController.text.toString());
+              }
+            },
+          ),
+        ),
+      );
 
   Widget _inputForm(Size size) {
     return Padding(
@@ -81,6 +105,7 @@ class AuthPage extends StatelessWidget {
                   },
                 ),
                 TextFormField(
+                  obscureText: true,
                   controller: _passwordController,
                   decoration: InputDecoration(
                       icon: Icon(Icons.vpn_key), labelText: "Password"),
