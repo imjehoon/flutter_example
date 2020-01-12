@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:practice_assistant/data/join_or_login.dart';
 import 'package:practice_assistant/helper/login_backgroud.dart';
+import 'package:provider/provider.dart';
 
 class AuthPage extends StatelessWidget {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -10,15 +12,12 @@ class AuthPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size; // 화면 사이즈를 가져옴 ( 폰별로 다름 )
     return Scaffold(
-        // appBar: AppBar(
-        //   title: Text('Firebase Login'),
-        // ),
         body: Stack(
       alignment: Alignment.center, // 스택 가운데 정렬해줌
       children: <Widget>[
         CustomPaint(
           size: size,
-          painter: LoginBackground(),
+          painter: LoginBackground(isJoin:  Provider.of<JoinOrLogin>(context).isJoin),
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.center, // 가운데 정렬
@@ -34,7 +33,14 @@ class AuthPage extends StatelessWidget {
             Container(
               height: size.height * 0.1,
             ),
-            Text("Don't Have an Account? Create one"),
+            GestureDetector(
+              onTap: (){ 
+                // 익명 함수
+                // 외부에 void textBox() { } 선언 해도 됨
+                JoinOrLogin joinOrLogin = Provider.of<JoinOrLogin>(context);
+                joinOrLogin.toggle();
+              },
+              child: Text("Don't Have an Account? Create one")),
             Container(
               height: size.height * 0.05,
             )
