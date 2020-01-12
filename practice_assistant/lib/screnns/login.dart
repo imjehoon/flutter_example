@@ -22,11 +22,7 @@ class AuthPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center, // 가운데 정렬
           mainAxisAlignment: MainAxisAlignment.end, // 스택 아래로 변경
           children: <Widget>[
-            Container(
-              width: 200,
-              height: 200,
-              color: Colors.blue,
-            ),
+            Image.network("https://picsum.photos/200"),
             Stack(
               children: <Widget>[
                 _inputForm(size),
