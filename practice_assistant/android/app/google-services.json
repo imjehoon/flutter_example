@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "371073522106",
+    "firebase_url": "https://login-e2521.firebaseio.com",
+    "project_id": "login-e2521",
+    "storage_bucket": "login-e2521.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371073522106:android:10a69d7037b3e8c74fe583",
+        "android_client_info": {
+          "package_name": "com.imjehoon.practice_assistant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371073522106-dluqfk9p41s070kphk1l1oteklu1v59l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATnS0fiF-WhsNMHcBMNyVCHCQ7jikYFxM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371073522106-dluqfk9p41s070kphk1l1oteklu1v59l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
